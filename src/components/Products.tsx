@@ -53,9 +53,17 @@ const Products = () => {
               className="overflow-hidden hover:shadow-lg transition-all duration-300 group cursor-pointer"
             >
               <div className="aspect-square bg-muted overflow-hidden">
-                <div className="w-full h-full bg-gradient-to-br from-secondary/20 to-accent/20 flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
-                  <span className="text-4xl md:text-5xl">🥜</span>
-                </div>
+                {product.image ? (
+                  <img 
+                    src={product.image} 
+                    alt={product.name}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                ) : (
+                  <div className="w-full h-full bg-gradient-to-br from-secondary/20 to-accent/20 flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
+                    <span className="text-4xl md:text-5xl">🥜</span>
+                  </div>
+                )}
               </div>
               <div className="p-4">
                 <h3 className="font-semibold text-foreground mb-1 text-sm md:text-base">
