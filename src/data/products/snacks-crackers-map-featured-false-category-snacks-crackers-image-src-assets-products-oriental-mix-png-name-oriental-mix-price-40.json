@@ -1,7 +1,7 @@
 {
   "featured": false,
-  "category": "Snacks & Crackers",
-  "image": "/src/assets/products/oriental-mix.png",
-  "name": "Oriental mix",
+  "category": "Peanuts",
+  "image": "/src/assets/products/peanuts.png",
+  "name": "Peanuts",
   "price": "40"
 }
