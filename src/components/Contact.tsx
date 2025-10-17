@@ -4,6 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card } from "@/components/ui/card";
 import { MapPin, Phone, Mail, Facebook, Instagram, Youtube } from "lucide-react";
+import contactInfo from "@/data/settings/contact.json";
 import { useToast } from "@/hooks/use-toast";
 
 const Contact = () => {
@@ -107,10 +108,7 @@ const Contact = () => {
                 <MapPin className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
                 <div>
                   <h4 className="font-semibold text-foreground mb-2">Main Office</h4>
-                  <p className="text-muted-foreground text-sm">
-                    123 Trade Center, International District<br />
-                    Cairo, Egypt
-                  </p>
+                  <p className="text-muted-foreground text-sm">{contactInfo.address}</p>
                 </div>
               </div>
             </Card>
@@ -120,10 +118,7 @@ const Contact = () => {
                 <Phone className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
                 <div>
                   <h4 className="font-semibold text-foreground mb-2">Phone</h4>
-                  <p className="text-muted-foreground text-sm">
-                    +20 123 456 7890<br />
-                    +20 098 765 4321
-                  </p>
+                  <p className="text-muted-foreground text-sm">{contactInfo.phone}</p>
                 </div>
               </div>
             </Card>
@@ -133,9 +128,7 @@ const Contact = () => {
                 <Mail className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
                 <div>
                   <h4 className="font-semibold text-foreground mb-2">Email</h4>
-                  <p className="text-muted-foreground text-sm">
-                    info@worldofnuts.com
-                  </p>
+                  <p className="text-muted-foreground text-sm">{contactInfo.email}</p>
                 </div>
               </div>
             </Card>

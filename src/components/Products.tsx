@@ -1,39 +1,20 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { Card } from "@/components/ui/card";
+import { loadProducts, type Product } from "@/lib/content";
 
-const productCategories = {
-  Nuts: [
-    { name: "Almonds", price: "$12.99/lb" },
-    { name: "Cashews", price: "$14.99/lb" },
-    { name: "Hazelnut", price: "$13.99/lb" },
-    { name: "Macadamia Nuts", price: "$18.99/lb" },
-    { name: "Mixed Nuts", price: "$15.99/lb" },
-    { name: "Pistachio", price: "$16.99/lb" },
-    { name: "Walnuts", price: "$11.99/lb" },
-  ],
-  Seeds: [
-    { name: "Black Watermelon Seeds", price: "$8.99/lb" },
-    { name: "Egyptian Seeds", price: "$9.99/lb" },
-    { name: "Pumpkin Seeds", price: "$10.99/lb" },
-    { name: "Squash Seeds", price: "$9.49/lb" },
-    { name: "Sunflower Seeds", price: "$7.99/lb" },
-  ],
-  Peanuts: [
-    { name: "Coated Peanuts", price: "$6.99/lb" },
-    { name: "Peanuts", price: "$5.99/lb" },
-  ],
-  "Snacks & Crackers": [
-    { name: "Chickpeas", price: "$7.99/lb" },
-    { name: "Oriental Mix", price: "$12.99/lb" },
-    { name: "Puffed Rice", price: "$4.99/lb" },
-    { name: "Shoestring Potatoes", price: "$5.99/lb" },
-    { name: "Sprouted Spelt", price: "$8.99/lb" },
-    { name: "Toasted Corn Nuts", price: "$6.49/lb" },
-  ],
+const productCategoriesFromJson = () => {
+  const all = loadProducts();
+  return all.reduce((acc, p) => {
+    const key = p.category as keyof typeof acc;
+    if (!acc[key]) acc[key] = [] as Product[];
+    acc[key].push(p);
+    return acc;
+  }, {} as Record<Product["category"], Product[]>);
 };
 
 const Products = () => {
-  const [activeTab, setActiveTab] = useState<keyof typeof productCategories>("Nuts");
+  const categories = useMemo(productCategoriesFromJson, []);
+  const [activeTab, setActiveTab] = useState<keyof typeof categories>("Nuts");
 
   return (
     <section id="products" className="py-16 md:py-24 bg-card">
@@ -49,7 +30,7 @@ const Products = () => {
 
         {/* Tabbed Navigation */}
         <div className="flex flex-wrap justify-center gap-2 md:gap-4 mb-12">
-          {Object.keys(productCategories).map((category) => (
+          {Object.keys(categories).map((category) => (
             <button
               key={category}
               onClick={() => setActiveTab(category as keyof typeof productCategories)}
@@ -66,7 +47,7 @@ const Products = () => {
 
         {/* Product Grid */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 animate-fade-in">
-          {productCategories[activeTab].map((product, index) => (
+          {categories[activeTab]?.map((product, index) => (
             <Card
               key={index}
               className="overflow-hidden hover:shadow-lg transition-all duration-300 group cursor-pointer"

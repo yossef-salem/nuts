@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import logo from "@/assets/logo.png";
+import contact from "@/data/settings/contact.json";
 
 const navItems = [
   { label: "Home", href: "#home" },
@@ -58,6 +59,7 @@ const Header = () => {
               </a>
             </li>
           ))}
+          <li className="text-sm text-muted-foreground">{(contact as any)?.phone}</li>
         </ul>
 
         {/* Mobile Menu Button */}

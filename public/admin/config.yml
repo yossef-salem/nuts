@@ -10,6 +10,7 @@ collections:
     label: "Products"
     folder: "src/data/products"
     create: true
+    format: "json"
     slug: "{{category}}-{{slug}}"
     fields:
       - { label: "Product Name", name: "name", widget: "string" }
@@ -23,6 +24,7 @@ collections:
     label: "Special Offers"
     folder: "src/data/offers"
     create: true
+    format: "json"
     slug: "{{slug}}"
     fields:
       - { label: "Offer Title", name: "title", widget: "string" }
