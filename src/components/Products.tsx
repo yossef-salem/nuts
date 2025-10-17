@@ -54,12 +54,19 @@ const Products = () => {
             >
               <div className="aspect-square bg-muted overflow-hidden">
                 {product.image ? (
+                  // Normalize legacy paths saved by CMS before config change
+                  // e.g., "/src/assets/products/x.png" -> "/images/products/x.png"
+                  (() => {
+                    const normalizedSrc = product.image.replace(/^\/src\/assets\/products\//, "/images/products/");
+                    return (
                   <img 
-                    src={product.image} 
+                    src={normalizedSrc}
                     alt={product.name}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                     loading="lazy"
                   />
+                    );
+                  })()
                 ) : (
                   <div className="w-full h-full bg-gradient-to-br from-secondary/20 to-accent/20 flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
                     <span className="text-4xl md:text-5xl">🥜</span>
