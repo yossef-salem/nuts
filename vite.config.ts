@@ -9,8 +9,8 @@ export default defineConfig(({ mode }) => ({
     host: "::",
     port: 8080,
   },
-  // Set the base path for GitHub Pages deployments. Replace 'nuts' with the repo name if it changes.
-  base: mode === "production" ? "/nuts/" : "/",
+  // For Netlify, root at "/" in all modes
+  base: "/",
   plugins: [react(), mode === "development" && componentTagger()].filter(Boolean),
   resolve: {
     alias: {

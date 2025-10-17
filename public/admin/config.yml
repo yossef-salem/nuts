@@ -1,7 +1,6 @@
 backend:
-  name: github
-  repo: yossef-salem/nuts
-  branch: main # or master, depending on your default branch
+  name: git-gateway
+  branch: main
 
 media_folder: "src/assets/products" # Where product images will be stored
 public_folder: "/src/assets/products"
