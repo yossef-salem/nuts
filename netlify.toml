@@ -8,6 +8,21 @@
   status = 200
 
 [[redirects]]
+  from = "/.netlify/*"
+  to = "/.netlify/:splat"
+  status = 200
+
+[[headers]]
+  for = "/admin/*"
+  [headers.values]
+    cache-control = "no-cache, no-store, must-revalidate"
+
+[[headers]]
+  for = "/.netlify/*"
+  [headers.values]
+    cache-control = "no-cache"
+
+[[headers]]
   from = "/*"
   to = "/index.html"
   status = 200
