@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: YOUR_GITHUB_USERNAME/YOUR_REPO_NAME # Update this with your GitHub repo
+  repo: yossef-salem/nuts
   branch: main # or master, depending on your default branch
 
 media_folder: "src/assets/products" # Where product images will be stored
