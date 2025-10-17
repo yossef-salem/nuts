@@ -1,7 +1,8 @@
 {
   "featured": false,
-  "category": "Peanuts",
-  "price": "70",
-  "image": "/src/assets/products/peanuts.png",
-  "name": "Peanuts"
+  "category": "Snacks & Crackers",
+  "price": "90",
+  "image": "/src/assets/products/oriental-mix.png",
+  "name": "Oriental mix",
+  "description": "very good"
 }
