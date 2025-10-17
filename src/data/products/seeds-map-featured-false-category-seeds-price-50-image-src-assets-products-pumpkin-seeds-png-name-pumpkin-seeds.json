@@ -1,7 +1,7 @@
 {
   "featured": false,
-  "category": "Seeds",
-  "price": "50",
-  "image": "/src/assets/products/pumpkin-seeds.png",
-  "name": "Pumpkin seeds"
+  "category": "Peanuts",
+  "price": "70",
+  "image": "/src/assets/products/peanuts.png",
+  "name": "Peanuts"
 }
