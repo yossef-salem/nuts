@@ -4,7 +4,6 @@ import { loadProducts, type Product } from "@/lib/content";
 
 const productCategoriesFromJson = () => {
   const all = loadProducts();
-  console.log("Loaded products:", all); // Debug log
   return all.reduce((acc, p) => {
     const key = p.category as keyof typeof acc;
     if (!acc[key]) acc[key] = [] as Product[];
@@ -59,11 +58,7 @@ const Products = () => {
                     src={product.image} 
                     alt={product.name}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                    onError={(e) => {
-                      console.log("Image failed to load:", product.image);
-                      e.currentTarget.style.display = 'none';
-                    }}
-                    onLoad={() => console.log("Image loaded successfully:", product.image)}
+                    loading="lazy"
                   />
                 ) : (
                   <div className="w-full h-full bg-gradient-to-br from-secondary/20 to-accent/20 flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
